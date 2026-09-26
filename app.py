@@ -541,7 +541,7 @@ with st.sidebar:
 
         response = requests.get(
             f"{API_URL}/",
-            timeout=5
+            timeout=30
         )
 
         if response.status_code == 200:
