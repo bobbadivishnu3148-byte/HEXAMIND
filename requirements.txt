@@ -11,3 +11,4 @@ openai
 torch
 pennylane
 joblib
+qiskit==2.5.2
