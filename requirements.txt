@@ -1,0 +1,13 @@
+streamlit
+requests
+pandas
+numpy
+scikit-learn
+fastapi
+uvicorn
+pydantic
+python-dotenv
+openai
+torch
+pennylane
+joblib

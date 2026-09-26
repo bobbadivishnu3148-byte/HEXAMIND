@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANTUM HEALTH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+         QuantumHealth
+    </div>
+
+    <nav>
+        <button onclick="showPage('dashboard')" class="nav-btn active">
+            🏠 Dashboard
+        </button>
+
+        <button onclick="showPage('patient')" class="nav-btn">
+            👤 Patient Data
+        </button>
+
+        <button onclick="showPage('prediction')" class="nav-btn">
+            ⚛️ Prediction
+        </button>
+
+        <button onclick="showPage('analytics')" class="nav-btn">
+            📊 Analytics
+        </button>
+
+        <button onclick="showPage('history')" class="nav-btn">
+            📋 History
+        </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <button class="nav-btn">
+            ⚙️ Settings
+        </button>
+    </div>
+
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+
+    <div>
+        <h2>Hybrid Quantum ML Platform</h2>
+        <p>Early Disease Detection System</p>
+    </div>
+
+    <div class="user">
+        <div class="avatar">M</div>
+        <span>Medical Researcher</span>
+    </div>
+
+</header>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page">
+
+    <div class="welcome">
+
+        <div>
+            <h1>Welcome👋</h1>
+
+            <p>
+                hybrid quantum machine learning to analyze
+                breast cancer diagnostic features and estimate
+                disease risk.
+            </p>
+        </div>
+
+        <button class="primary-btn"
+                onclick="showPage('patient')">
+            + New Analysis
+        </button>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">👥</div>
+            <div>
+                <h3 id="patientCount">0</h3>
+                <p>Patients Analyzed</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">⚛️</div>
+            <div>
+                <h3>97.72%</h3>
+                <p>5-Fold Model Accuracy</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🧬</div>
+            <div>
+                <h3 id="highRiskCount">0</h3>
+                <p>High Risk Predictions</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔬</div>
+            <div>
+                <h3>4</h3>
+                <p>Quantum Qubits</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="section-grid">
+
+        <div class="panel">
+
+            <h2>Quantum Model Status</h2>
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <p>Hybrid Quantum-Classical Model</p>
+                </div>
+
+            </div>
+
+            <div class="model-info">
+
+                <div>
+                    <span>Quantum Qubits</span>
+                    <strong>4</strong>
+                </div>
+
+                <div>
+                    <span>5-Fold Accuracy</span>
+                    <strong>97.72%</strong>
+                </div>
+
+                <div>
+                    <span>Architecture</span>
+                    <strong>QNN</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h2>Latest Prediction</h2>
+
+            <div class="prediction-result">
+
+                <div class="risk-circle" id="dashboardRisk">
+                    --
+                </div>
+
+                <div>
+                    <h3 id="dashboardRiskLevel">
+                        No prediction yet
+                    </h3>
+
+                    <p>
+                        Breast cancer screening
+                    </p>
+
+                    <span class="warning">
+                        Run an analysis to see results
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PATIENT PAGE -->
+
+<section id="patient" class="page hidden">
+
+    <div class="page-title">
+
+        <h1>Breast Cancer Diagnostic Data</h1>
+
+        <p>
+            Enter the 30 diagnostic features required by the hybrid QNN.
+        </p>
+
+    </div>
+
+
+    <div class="form-panel">
+
+        <!-- PATIENT INFORMATION -->
+
+        <h2>Patient Information</h2>
+
+        <div class="form-grid">
+
+            <div class="input-group">
+
+                <label>Patient Name</label>
+
+                <input
+                    type="text"
+                    id="patientName"
+                    placeholder="Enter patient name">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Age</label>
+
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Age">
+
+            </div>
+
+        </div>
+
+
+        <h2 style="margin-top:30px;">
+            Diagnostic Features
+        </h2>
+
+        <p>
+            Enter the measurements from the diagnostic examination.
+            These values correspond to the WDBC dataset features.
+        </p>
+
+
+        <div class="form-grid">
+
+            <div class="input-group">
+                <label>Mean Radius</label>
+                <input type="number" step="any" id="mean_radius">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Texture</label>
+                <input type="number" step="any" id="mean_texture">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Perimeter</label>
+                <input type="number" step="any" id="mean_perimeter">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Area</label>
+                <input type="number" step="any" id="mean_area">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Smoothness</label>
+                <input type="number" step="any" id="mean_smoothness">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Compactness</label>
+                <input type="number" step="any" id="mean_compactness">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Concavity</label>
+                <input type="number" step="any" id="mean_concavity">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Concave Points</label>
+                <input type="number" step="any" id="mean_concave_points">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Symmetry</label>
+                <input type="number" step="any" id="mean_symmetry">
+            </div>
+
+            <div class="input-group">
+                <label>Mean Fractal Dimension</label>
+                <input type="number" step="any" id="mean_fractal_dimension">
+            </div>
+
+
+            <div class="input-group">
+                <label>Radius Error</label>
+                <input type="number" step="any" id="radius_error">
+            </div>
+
+            <div class="input-group">
+                <label>Texture Error</label>
+                <input type="number" step="any" id="texture_error">
+            </div>
+
+            <div class="input-group">
+                <label>Perimeter Error</label>
+                <input type="number" step="any" id="perimeter_error">
+            </div>
+
+            <div class="input-group">
+                <label>Area Error</label>
+                <input type="number" step="any" id="area_error">
+            </div>
+
+            <div class="input-group">
+                <label>Smoothness Error</label>
+                <input type="number" step="any" id="smoothness_error">
+            </div>
+
+            <div class="input-group">
+                <label>Compactness Error</label>
+                <input type="number" step="any" id="compactness_error">
+            </div>
+
+            <div class="input-group">
+                <label>Concavity Error</label>
+                <input type="number" step="any" id="concavity_error">
+            </div>
+
+            <div class="input-group">
+                <label>Concave Points Error</label>
+                <input type="number" step="any" id="concave_points_error">
+            </div>
+
+            <div class="input-group">
+                <label>Symmetry Error</label>
+                <input type="number" step="any" id="symmetry_error">
+            </div>
+
+            <div class="input-group">
+                <label>Fractal Dimension Error</label>
+                <input type="number" step="any" id="fractal_dimension_error">
+            </div>
+
+
+            <div class="input-group">
+                <label>Worst Radius</label>
+                <input type="number" step="any" id="worst_radius">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Texture</label>
+                <input type="number" step="any" id="worst_texture">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Perimeter</label>
+                <input type="number" step="any" id="worst_perimeter">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Area</label>
+                <input type="number" step="any" id="worst_area">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Smoothness</label>
+                <input type="number" step="any" id="worst_smoothness">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Compactness</label>
+                <input type="number" step="any" id="worst_compactness">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Concavity</label>
+                <input type="number" step="any" id="worst_concavity">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Concave Points</label>
+                <input type="number" step="any" id="worst_concave_points">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Symmetry</label>
+                <input type="number" step="any" id="worst_symmetry">
+            </div>
+
+            <div class="input-group">
+                <label>Worst Fractal Dimension</label>
+                <input type="number" step="any" id="worst_fractal_dimension">
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn analyze-btn"
+            onclick="runPrediction()">
+
+            ⚛️ Run Hybrid Quantum ML Analysis
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- PREDICTION PAGE -->
+
+<section id="prediction" class="page hidden">
+
+    <div class="page-title">
+
+        <h1>Quantum ML Prediction</h1>
+
+        <p>
+            Hybrid classical-quantum breast cancer screening.
+        </p>
+
+    </div>
+
+
+    <div class="prediction-box">
+
+        <div class="quantum-animation">
+
+            <div class="atom">
+                ⚛️
+            </div>
+
+            <h2>Hybrid Quantum Model</h2>
+
+            <p id="processingText">
+                Waiting for patient data...
+            </p>
+
+        </div>
+
+
+        <div class="prediction-output">
+
+            <h2>Prediction Result</h2>
+
+            <div class="result-card">
+
+                <div class="result-number" id="riskValue">
+                    --
+                </div>
+
+                <div>
+
+                    <h2 id="riskLevel">
+                        No prediction yet
+                    </h2>
+
+                    <p>
+                        Estimated malignant probability
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="risk-bar">
+
+                <div
+                    id="riskBar"
+                    class="risk-progress">
+                </div>
+
+            </div>
+
+
+            <div class="recommendation">
+
+                <h3>AI Recommendation</h3>
+
+                <p id="recommendationText">
+
+                    Run an analysis to generate a model prediction.
+
+                </p>
+
+            </div>
+
+
+            <!-- FEATURE CONTRIBUTIONS -->
+
+            <div class="recommendation">
+
+                <h3>Top Contributing Features</h3>
+
+                <p>
+                    These features had the largest measured effect
+                    on the model's prediction during local perturbation.
+                    They are model explanations, not proof of causation.
+                </p>
+
+                <div id="featureContributions">
+                    No explanation available yet.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ANALYTICS -->
+
+<section id="analytics" class="page hidden">
+
+    <div class="page-title">
+
+        <h1>Model Analytics</h1>
+
+        <p>
+            Performance of the trained hybrid quantum-classical model.
+        </p>
+
+    </div>
+
+
+    <div class="analytics-grid">
+
+        <div class="chart-panel">
+
+            <h2>5-Fold Cross Validation</h2>
+
+            <div class="bars">
+
+                <div class="bar-item">
+
+                    <span>Hybrid QNN</span>
+
+                    <div class="bar">
+                        <div style="width:97.72%"></div>
+                    </div>
+
+                    <strong>97.72%</strong>
+
+                </div>
+
+
+                <div class="bar-item">
+
+                    <span>Random Forest</span>
+
+                    <div class="bar">
+                        <div style="width:95.61%"></div>
+                    </div>
+
+                    <strong>95.61%</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-panel">
+
+            <h2>Hybrid Model Performance</h2>
+
+            <div class="accuracy">
+
+                <div class="accuracy-circle">
+                    97.72%
+                </div>
+
+                <p>
+                    Mean 5-fold accuracy
+                </p>
+
+                <p>
+                    ± 0.70%
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HISTORY -->
+
+<section id="history" class="page hidden">
+
+    <div class="page-title">
+
+        <h1>Prediction History</h1>
+
+        <p>
+            Previous patient analyses from this browser session.
+        </p>
+
+    </div>
+
+
+    <div class="table-panel">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Patient</th>
+                    <th>Age</th>
+                    <th>Disease</th>
+                    <th>Risk</th>
+                    <th>Date</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="historyTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
