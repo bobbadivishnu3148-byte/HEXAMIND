@@ -21,7 +21,13 @@ st.set_page_config(
 # CONFIG
 # =========================================================
 
-API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
+API_URL = os.getenv("API_URL", "")
+
+if not API_URL:
+    try:
+        API_URL = st.secrets["API_URL"]
+    except Exception:
+        API_URL = "http://127.0.0.1:8000"
 
 
 FEATURE_NAMES = [
